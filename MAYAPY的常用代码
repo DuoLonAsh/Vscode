@@ -1,0 +1,16 @@
+####
+#命令
+##选择 ：select
+-概要：
+select( [objects...] , [add=boolean], [addFirst=boolean], [all=boolean], [allDagObjects=boolean], [allDependencyNodes=boolean], [clear=boolean], [containerCentric=boolean], [deselect=boolean], [hierarchy=boolean], [noExpand=boolean], [replace=boolean], [symmetry=boolean], [symmetrySide=int], [toggle=boolean], [visible=boolean]) 
+
+--select是可撤销的，不可查询的，不可编辑的。
+
+此命令用于将对象置于活动列表之上或之外。如果未指定五个标志[-add，-af，-r，-d，-tgl]，则默认为使用给定的对象列表替换活动列表上的对象。
+在“select set1”中选择一个集合时，该行为将被选中，而不是集合本身。如果要选择一个集合，则必须使用“-ne / noExpand”标志。
+随着命名空间的出现，按名称选择可能会令人困惑。为了澄清，没有合格的命名空间，名称查找仅限于根命名空间“：”中的对象。名称实际上有两个部分：名称空间和名称本身在名称空间中是唯一的。如果要选择特定命名空间中的对象，则需要包含命名空间分隔符“：”。
+例如，'select -r“foo *”'试图在根命名空间中查找带有“foo”前缀的对象。它不会尝试使用“foo”前缀查找命名空间中的所有对象。如果要选择命名空间（foo）中的所有对象，请使用“select”foo：*“'。注意：当应用程序启动时，系统必须存在多个依赖关系节点。这些对象不可删除，但可以选择。
+可以使用不带任何参数的“ls”命令获取场景中的所有对象（dag和依赖节点）。使用“-all”，“adn / allDependencyNodes”或“-ado / allDagObjects”标志时，仅选择可删除对象。仍可通过在“select time1;”中明确指定其名称来选择不可删除对象。
+
+相关命令
+selectKey, selectMode, selectPref, selectPriority, selectType, selectedNodes
