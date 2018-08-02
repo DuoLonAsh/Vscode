@@ -1,0 +1,48 @@
+class SetAttr(object):
+    def __init__():
+        window_name = "set_render_attr"
+        if cmds.window(window_name, exists=True):
+            cmds.deleteUI(window_name)
+        cmds.window(window_name, title=u'批量勾选（删除）选渲染属性工具', menuBar=True,
+                    sizeable=True, retain=True, rtf=True, wh=[250, 260])
+        mainLayout = cmds.scrollLayout(p=window_name)
+        tabLayout = cmds.tabLayout(p=mainLayout)
+        self.all_attr_name = """
+这里的cmds.window是创建一个窗口，但会使其不可见。
+窗口可以有一个可选的菜单栏。
+此外，可以打开或关闭标题栏和最小化/最大化按钮。
+如果标题栏已关闭，则您无法使用最小化或最大化按钮。
+窗口将需要某种控件布局来排列控件（按钮，滑块，字段等）
+注意：此命令将清除uiTemplate堆栈。
+需要在窗口cmd之后设置窗口的模板。
+--------------
+exists是Window的参数，是一个布尔值，返回指定的对象是否存在。其他标志被忽略。
+------
+deleteUI
+此命令删除UI对象，如窗口和控件。
+删除布局或窗口也将删除其所有子项。
+如果使用标志，则要删除的所有对象必须是指定的类型。
+可能无法编辑或查询此命令。
+--------
+据猜测，这里的deleteUI是作用于if这项参数，如果exists的布尔值为1，则删除UI对象，则这里的UI对象就是变量window_name
+--------
+title （缩写t），此项参数是窗口的标题名
+----
+menubar是向窗口添加一个空的菜单栏。参数为布尔值。
+-----
+sizeable此项参数为设置窗口是否可以交互式调整大小。
+------
+retain关闭窗口后保留窗口。
+默认设置是在窗口关闭时删除它。
+----
+rtf是参数resizeToFitChildren的缩写，窗口将始终增大/缩小以适合它包含的控件。
+---
+wh是参数widthHeight的缩写，窗口的宽度和高度，不包括任何窗口框架，以像素为单位。
+---
+scrollLayout此项命令是创建滚动布局。
+P是此项命令的参数 parent缩写，为此控件的父布局。这里的父为Window_name
+-----
+tabLayout
+此项命令是创建选项卡组。P同scrollLayout的
+"""
+        
